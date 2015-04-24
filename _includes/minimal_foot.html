@@ -1,0 +1,36 @@
+<footer>
+    <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+    <p><small>{{ site.copyright }}</small></p>
+</footer>
+<script src="/static/minimal/javascripts/scale.fix.js"></script>
+<script src="/static/js/jquery-ui.js"></script>
+<script type="text/javascripts">
+$(function() {
+    $.ajax({
+     url: "search.xml",
+     dataType: "xml",
+     success: function( xmlResponse ) {
+        var data = $( "article", xmlResponse ).map(function() {
+         return {
+             value: $( "title", this ).text() + ", " +
+             ( $.trim( $( "date", this ).text() ) ),
+             desc: $("description", this).text(),
+             url: $("url", this).text()
+         };
+     }).get();
+
+        $( "#J_search" ).autocomplete({
+            source: data,
+            minLength: 0,
+            select: function( event, ui ) {
+                window.location.href = ui.item.url;
+            }
+        });
+    }
+});
+});
+</script>
+</div>
+</body>
+</html>
+

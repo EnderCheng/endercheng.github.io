@@ -1,16 +1,11 @@
-<div class="sidebar well">
-{{ site.description }}
-</div>
 
-<div class="sidebar well">
-    <h1>Recent Posts</h1>
-    <ul>
-        {% for post in site.posts limit:5 %}
-          <li><a href="{{ site.baseurl}}{{ post.url }}">{{ post.title }}</a></li>
-        {% endfor %}
-    </ul>
-</div>
+<h3><a href="{{ site.baseurl }}/archive.html">Archives</a></h4>
 
-<div class="sidebar well">
-{% include links-list.html %}
-</div>
+<h3><a href="{{ site.baseurl }}/publications.html">Publications</a></h4>
+
+<h3><a href="{{ site.baseurl }}/about.html">About Me</a></h4>
+
+<h3><a href="https://github.com/endercheng">Github</a></h4>
+<input id="J_search" placeholder="Simple Search"/>
+
+

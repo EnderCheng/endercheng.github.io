@@ -1,18 +1,19 @@
 ---
-layout: default
+layout: minimal_archive
+title: Archives
 ---
 
 <div class="well">
 {%for post in site.posts %}
     {% unless post.next %}
-        <h1>{{ post.date | date: '%Y' }}</h1>
+        <h2>{{ post.date | date: '%Y' }}</h2>
         <ul>
     {% else %}
         {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
         {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
         {% if year != nyear %}
             </ul>
-            <h1>{{ post.date | date: '%Y' }}</h1>
+            <h2>{{ post.date | date: '%Y' }}</h2>
             <ul>
         {% endif %}
     {% endunless %}

@@ -1,31 +1,37 @@
 ---
-layout: default
+layout: minimal_default 
+title: Cheng Huang
 ---
 
 {% for post in paginator.posts %}
-<div class="article">
-    <div class="well">
-        <h1><a href="{{ site.baseurl}}{{ post.url }}">{{ post.date | date: "%b %-d, %Y" }} - {{ post.title }}</a></h1>
-        {% if site.comments == true and post.comments == true and site.disqus != '' %}
-          <p class="author"><a href="{{ site.baseurl }}{{ post.url }}/#disqus_thread">Comments</a></p>
+        <a href="{{ post.url }}">{{ post.title }}</a></br>
+        <span class="index_date"> {{ post.date | date_to_long_string }}</span>
+        {% if post.comments %}
+            | <a href="{{ post.url }}/#disqus_thread">Comments</a>
         {% endif %}
-        <div class="content">
-            {{ post.content }}
-        </div>
-    </div>
-</div>
+        </br>
+        {% if post.introduction %}
+            </br>
+            {{ post.introduction }}
+        {% endif %}
+        {% if post.icon %}
+            <img src="{{ post.icon }}" width="75%">
+        {% endif %}
+        <p align="right"><a href="{{ post.url }}">more...</a></p>
+        <hr/>
 {% endfor %}
-
 <div class="pagination">
   {% if paginator.previous_page %}
-      {% if paginator.previous_page == 1 %}
-        <a class="btn btn-default" href="{{ site.baseurl}}/index.html" class="previous">Newer</a>
-      {% else %}
-        <a class="btn btn-default" href="{{ site.baseurl}}/page{{ paginator.previous_page }}" class="previous">Newer</a>
-      {% endif %}
+    <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>
+  {% else %}
+    <span class="previous">Previous</span>
   {% endif %}
   <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
   {% if paginator.next_page %}
-    <a class="btn btn-default" href="{{ site.baseurl}}/page{{ paginator.next_page }}" class="next">Older</a>
+    <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+  {% else %}
+    <span class="next ">Next</span>
   {% endif %}
 </div>
+
+{% include disqus-counts.html %}

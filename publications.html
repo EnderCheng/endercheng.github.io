@@ -1,0 +1,15 @@
+---
+layout: minimal_post
+title: Publications
+noindex: True 
+---
+
+{% for post in site.posts %}
+    {% if post.file %}
+        <img src="/static/pdf48.png" align="right">
+    <a href="{{ post.url }}">{{ post.title }}</a></br>
+    <span class="index_date"> {{ post.date | date_to_long_string }}</span>
+    </br></br>
+    <hr/>
+    {% endif %}
+{% endfor %}
