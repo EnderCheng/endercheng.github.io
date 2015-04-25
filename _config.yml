@@ -29,5 +29,5 @@ redcarpet:
 
 url: http://endercheng.github.io
 
-exclude: ['README.md', 'LICENSE']
+exclude: ['README.md']
 
