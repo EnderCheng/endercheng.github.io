@@ -3,7 +3,7 @@ layout: minimal_post
 title: Registering a .bit domain with namecoin. 
 published: true 
 comments: true
-introduction: A DNS type service is provided by namecoin for the .bit TLD. There is a tutorial on describing the process of domain name registration, however it is not really a step by step guide from zero. If you have some bitcoins, this is everything you need to do in order to register your own .bit domain.
+introduction: A DNS type service
 ---
 
 Before you do anything, you should probably go and read about [namecoin](http://namecoin.info).
