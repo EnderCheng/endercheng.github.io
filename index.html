@@ -10,10 +10,8 @@ title: Cheng Huang
             | <a href="{{ post.url }}/#disqus_thread">Comments</a>
         {% endif %}
         </br>
-        {% if post.introduction %}
-            </br>
-            {{ post.introduction }}
-        {% endif %}
+        {{ post.excerpt }}
+        </br>
         {% if post.icon %}
             <img src="{{ post.icon }}" width="75%">
         {% endif %}

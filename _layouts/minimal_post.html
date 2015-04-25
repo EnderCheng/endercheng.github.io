@@ -6,9 +6,6 @@
     {% else %}
         <h4>{{ page.date | date_to_long_string }} | <a href="{{ page.url }}/#disqus_thread">Comments</a> </h4>
     {% endif %}
-    {% if page.introduction %}
-        <p> {{page.introduction }}
-    {% endif %}
     {{ content }}
 
 {% include disqus-comments.html %}
