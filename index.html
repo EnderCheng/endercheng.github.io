@@ -4,7 +4,7 @@ title: Cheng Huang
 ---
 
 {% for post in paginator.posts %}
-        <a href="{{ post.url }}">{{ post.title }}</a></br>
+        <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
         <span class="index_date"> {{ post.date | date_to_long_string }}</span>
         {% if post.comments %}
             | <a href="{{ post.url }}/#disqus_thread">Comments</a>
