@@ -1,0 +1,37 @@
+---
+layout: minimal_default 
+title: Cheng Huang
+---
+
+{% for post in paginator.posts %}
+        <a href="{{ post.url }}">{{ post.title }}</a></br>
+        <span class="index_date"> {{ post.date | date_to_long_string }}</span>
+        {% if post.comments %}
+            | <a href="{{ post.url }}/#disqus_thread">Comments</a>
+        {% endif %}
+        </br>
+        {% if post.introduction %}
+            </br>
+            {{ post.introduction }}
+        {% endif %}
+        {% if post.icon %}
+            <img src="{{ post.icon }}" width="75%">
+        {% endif %}
+        <p align="right"><a href="{{ post.url }}">more...</a></p>
+        <hr/>
+{% endfor %}
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>
+  {% else %}
+    <span class="previous">Previous</span>
+  {% endif %}
+  <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+  {% else %}
+    <span class="next ">Next</span>
+  {% endif %}
+</div>
+
+{% include disqus-counts.html %}
