@@ -1,10 +1,10 @@
 # Jekyll configuration
 # 
 # 
-title: Cheng's Blog
+title: Cheng Huang
 tagline: Security&Privacy.
 owner: Cheng Huang
-copyright: Cheng Huang 2015
+copyright: 2015 Cheng Huang | xdhuangcheng at gmail.com; huangcheng@ntu.edu.sg
 
 
 # baseurl will often be '', but for a project page on gh-pages, it needs to
