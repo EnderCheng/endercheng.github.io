@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p, ul, ol, table, pre, dl {
-  margin:0 0 20px;
+  margin:0 0 10px;
 }
 
 h1, h2, h3 {
@@ -307,4 +307,8 @@ footer {
 }
 #back-top a:hover {
   background-color: #777;
+}
+
+.intro h4{
+  -webkit-margin-start: 40px;
 }
