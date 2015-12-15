@@ -287,6 +287,28 @@ footer {
   }
 }
 
+#back-top {
+  position: fixed;
+  bottom: 50px;
+  margin-left: 940px;
+}
+#back-top a {
+  width: 54px;
+  height: 54px;
+  display: block;
+  background: #ddd url(/static/images/bg_up_arrow.png) no-repeat center center;
+  background-color: #aaa;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  transition: 1s;
+}
+#back-top a:hover {
+  background-color: #777;
+}
+
 #results-container
 {
   margin-top: 10px;
