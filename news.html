@@ -2,7 +2,7 @@
 layout: minimal_news
 title: Cheng Huang's homepage - News
 ---
-
+<h1>News</h1>
 {% for post in paginator.posts %}
         <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
         <span class="index_date"> {{ post.date | date_to_long_string }}</span>
