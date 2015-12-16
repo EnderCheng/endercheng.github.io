@@ -27,7 +27,7 @@ paginate_path: "news/page:num"
 highlighter: pygments
 markdown: kramdown
 
-url: http://endercheng.github.io
+url: http://chenghuang.info
 
 exclude: ['README.md']
 
