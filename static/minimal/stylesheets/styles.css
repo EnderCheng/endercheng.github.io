@@ -311,8 +311,7 @@ footer {
 
 .myimage img{
   width:130px;
-  float:left;
-  position:fixed;
+  float:right;
 }
 
 .intro h4{
