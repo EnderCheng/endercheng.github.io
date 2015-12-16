@@ -1,7 +1,7 @@
 # Jekyll configuration
 # 
 # 
-title: Cheng Huang's HomePage
+title: Welcome to Cheng Huang's HomePage
 tagline: Security&Privacy.
 owner: Cheng Huang
 copyright: 2015 created by Cheng Huang
@@ -27,7 +27,7 @@ paginate_path: "news/page:num"
 highlighter: pygments
 markdown: kramdown
 
-url: http://endercheng.github.io
+url: http://chenghuang.info/
 
 exclude: ['README.md']
 
