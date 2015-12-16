@@ -5,6 +5,7 @@ title: Cheng Huang's homepage - Publications
 
 <div class="well">
 {%for post in site.posts %}
+    {% if post.publication %}
     {% unless post.next %}
         <h2>{{ post.date | date: '%Y' }}</h2>
         <ul>
@@ -17,7 +18,8 @@ title: Cheng Huang's homepage - Publications
             <ul>
         {% endif %}
     {% endunless %}
-    <li><a href="{{ site.baseurl}}{{ post.url }}">{{ post.date | date: "%b %-d" }} - {{ post.title }}</a></li>
+    <li><a href="{{ site.baseurl}}{{ post.url }}">{{ post.date | date: "%b %-d" }} - {{ post.title }} - {{ post.abrepub }}</a></li>
+    {% endif %}
 {% endfor %}
 </ul>
 </div>

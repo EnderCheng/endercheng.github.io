@@ -309,6 +309,11 @@ footer {
   background-color: #777;
 }
 
+.modelimg img{
+  width:350px;
+  text-align: center;
+}
+
 .myimage img{
   width:100px;
   float:right;
