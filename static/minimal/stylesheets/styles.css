@@ -309,6 +309,12 @@ footer {
   background-color: #777;
 }
 
+.myimage img{
+  width:130px;
+  float:left;
+  position:fixed;
+}
+
 .intro h4{
   -webkit-margin-start: 40px;
 }
