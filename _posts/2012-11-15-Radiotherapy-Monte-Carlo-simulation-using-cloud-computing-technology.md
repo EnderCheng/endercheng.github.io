@@ -1,26 +1,15 @@
 --- 
 layout: minimal_publication
-title: Radiotherapy Monte Carlo simulation using cloud computing technology 
-journal: Australasian Physical and Engineering Sciences in Medicine 
-authors: CM Poole, I Cornelius, JV Trapp and CM Langton
-file: Poole et al. - Radiotherapy Monte Carlo simulation using cloud computing technology.pdf
+publication: true
+title: EFPA: Efficient and Flexible Privacy-Preserving Mining of Association Rule in Cloud
+conference: IEEE ICCC'15
+authors: Cheng Huang, and Rongxing Lu 
+file: EFPA.pdf
 ---
 
 ### Abstract
-Cloud computing allows for vast computational resources to be leveraged quickly and easily in bursts as and when required.
-Here we describe a technique that allows for Monte Carlo radiotherapy dose calculations to be performed using GEANT4 and executed in the cloud, with relative simulation cost and completion time evaluated as a function of machine count.
-As expected, simulation completion time decreases as \\( 1/n \\) for \\( n \\) parallel machines, and relative simulation cost is found to be optimal where \\( n \\) is a factor of the total simulation time in hours.
-Using the technique, we demonstrate the potential usefulness of cloud computing as a solution for rapid Monte Carlo simulation for radiotherapy dose calculation without the need for dedicated local computer hardware as a proof of principal.
+With the explosive growth of data and the advance of cloud computing, data mining technology has attracted considerable interest recently. However, the flourish of data mining technology still faces many challenges in big data era, and one of the main security issues is to prevent privacy disclosure when running data mining in cloud. In this paper, we propose an efficient and flexible protocol, called EFPA, for privacy-preserving association rule mining in cloud. With the protocol, plenty of participants can provide their data and mine the association rules in cloud together without privacy leakage. Detailed security analysis shows that the proposed EFPA protocol can achieve privacy-preserving mining of association rules in cloud. In addition, performance evaluations via extensive simulations also demonstrate the EFPA's effectiveness in term of low computational costs.
 
 ### Downloads
-- The software described in the manuscript is available from the manysim project page [here](http://code.google.com/p/manysim/).
-
-### Citation
-
-    @article{poole2012cad,
-        author={Poole, C.M. and Cornelius, I. and Trapp, J.V. and Langton, C.M.},
-        journal={Australasian Physical & Engineering Sciences in Medicine},
-        title={In-press. Radiotherapy Monte Carlo simulation using cloud computing technology},
-        year={2012},
-    }
+- The software described in the manuscript is available from the manysim project page [here](http://www3.ntu.edu.sg/home/rxlu/project/index.htm#iccc-mining).
 
