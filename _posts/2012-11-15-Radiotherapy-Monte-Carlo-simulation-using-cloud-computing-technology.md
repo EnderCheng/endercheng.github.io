@@ -1,7 +1,7 @@
 --- 
 layout: minimal_publication
 publication: true
-title: EFPA: Efficient and Flexible Privacy-Preserving Mining of Association Rule in Cloud
+title: EFPA-Efficient and Flexible Privacy-Preserving Mining of Association Rule in Cloud
 conference: IEEE ICCC'15
 authors: Cheng Huang, and Rongxing Lu 
 file: EFPA.pdf
