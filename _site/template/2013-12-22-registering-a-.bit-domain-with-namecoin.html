@@ -1,0 +1,227 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <meta name="keywords" content="Homepage, Cheng Huang">
+        <meta name="description" content="This is the homepage of Cheng Huang">
+        <title>Registering a .bit domain with namecoin.</title>
+    
+        <link rel="stylesheet" href="/static/minimal/stylesheets/styles.css">
+        <link rel="stylesheet" href="/static/minimal/stylesheets/pygment_trac.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+                  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+        });
+        </script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-62013433-1', 'auto');
+        ga('send', 'pageview');
+
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="wrapper">
+            <header>
+                <h1><a href="/">Welcome to Cheng Huang's HomePage</a></h1>
+                <h4>Security&Privacy.<h4>
+                
+<h3><a href="/index.html">About Me</a></h4>
+
+<h3><a href="/news/">News</a></h4>
+
+<h3><a href="/publicationlist.html">Publications</a></h4>
+
+<h3><a href="http://www3.ntu.edu.sg/home/rxlu/project/index.htm">Projects</a></h4>
+
+<h3><a href="https://github.com/endercheng">Github</a></h4>
+            </header>
+
+
+
+<section>
+    <h1>Registering a .bit domain with namecoin.</h1>
+    
+        <h4> | <a href="/template/2013-12-22-registering-a-.bit-domain-with-namecoin/#disqus_thread">Comments</a> </h4>
+    
+    <p>Before you do anything, you should probably go and read about <a href="http://namecoin.info">namecoin</a>.
+To cut a long story short, namecion is basically a decentralized (no one mother or root single copy) dictionary of key/value pairs which are synced using the same principals that enable bitcion mining/transactions and so on.
+The key (your domain name, example.bit) holds the value which specifies the location of your server, its IP address and other pieces of metadata.
+The current draft specification for this <code class="highlighter-rouge">.bit</code> TLD scheme is <a href="http://dot-bit.org/Namespace:Domain_names_v2.0">here</a>.
+You should know that a number of <a href="http://dot-bit.org/Namespace">namespaces</a> are present under the <code class="highlighter-rouge">.bit</code> umbrella, <code class="highlighter-rouge">d/&lt;domain&gt;</code> for domain names, <code class="highlighter-rouge">id/&lt;your name&gt;</code> for online identifications and so on - all of which are stores of key/value pairs.</p>
+
+<h2 id="acquire-nmc">Acquire NMC</h2>
+<p>In order to register a key/value pair a fee of 0.01 NMC is payable.
+<a href="http://dot-bit.org/HowToGetNamecoins">Where do you get namecoins from</a>?
+You get some given to you, buy them, or mine them; I bought some on an <a href="https://btc-e.com">exchange</a> for BTC.
+So this is where we begin - NMC in a wallet on some exchange.</p>
+
+<h2 id="installation">Installation</h2>
+<p>Here I reproduced some of the content found <a href="https://github.com/namecoin/namecoin/wiki/Install-and-Configure-Namecoin">on the namecoin wiki</a>, for operating systems other than Linux, you will also find the relevant information.</p>
+
+<p>Download and extract the most current version:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>wget -O /tmp/namecoin.tgz http://dot-bit.org/files/namecoin_linux`getconf LONG_BIT`.tgz
+tar xfz /tmp/namecoin.tgz -C ~/usr/local/bin/
+</code></pre>
+</div>
+
+<p>Setup a default configuration:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>mkdir ~/.namecoin &amp;&amp; \
+echo "rpcuser=`whoami` \n\
+rpcpassword=`openssl rand -hex 20` \n\
+rpcport=8336" &gt; ~/.namecoin/namecoin.conf
+</code></pre>
+</div>
+
+<p>That is it.
+Running namecoin as below will automatically create a new (and empty) wallet on your machine.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>./namecoind -daemon
+</code></pre>
+</div>
+
+<p>If this is the first time you have ever run namecoin you will have to wait a while (maybe an hour?) for a local copy of the blockchain to be populated.
+Have a look at the <a href="http://explorer.dot-bit.org/">namecoin block explorer</a> to find out the ID for the latest block.
+You can compare this to the block reported by the namecoin daemon you are running locally:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>./namecoind getinfo
+</code></pre>
+</div>
+
+<p>If the ‘blocks’ field is the same as the current block ID reported on the explorer, you are up-to-date.</p>
+
+<h2 id="depositing-nmc-to-your-wallet">Depositing NMC to your wallet</h2>
+<p>Ok, you have a wallet. What is its address?
+Assuming the daemon is running, this will return the address (and NMC balance) for your wallet:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>./namecoind listreceivedbyaddress 0 true
+</code></pre>
+</div>
+
+<p>The address field (a string starting with ‘N’) is what you need to know.
+Generally the exchange or online wallet you are using will have some sort of  withdrawal functionality.
+Specify now much NMC you want to transfer, and provide the address of your local wallet.
+Wait for a few confirmations of your transfer to occur, and eventually the previous command will show you have an NMC balance greater than zero (in fact what ever the amount you sent to your wallet was).</p>
+
+<h2 id="registering-your-domain-name">Registering your domain name</h2>
+<p>Now we have NMC to spend, you are ready to follow the <a href="https://github.com/namecoin/namecoin/wiki/How-to-register-and-configure-.bit-domains">instructions on the namecoin wiki</a>.
+First check the availability of your desired domain name using a <a href="http://dot-bit.org/tools/domainSearch.php">search tool</a>.
+If the name you want is free (where d/ indicates you are trying to register a key/value pair in the domain namespace, or id/ for the identification namespace for example):</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>./namedcoind name_new d/&lt;the name you want&gt;
+</code></pre>
+</div>
+
+<p>This will return a long and short hex string.
+Wait at least 12 blocks (according to the official wiki), then you can register the details of your domain.
+After you do this, you will be the owner of the key/value pair, not before.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>./namecoind name_firstupdate d/&lt;the name you want&gt; &lt;short hex string&gt; '{"ip": "&lt;server IP&gt;", "email": "&lt;optional email&gt;", "map": {"": "&lt;server IP&gt;", "www": "&lt;server IP&gt;"}}'
+</code></pre>
+</div>
+
+<p>The ‘map’ field is used to specify subdomain information.
+That is all there is to it.
+You may also like to register a public identification in the id/ namespace:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>./namecoind name_new id/&lt;your name&gt;
+./namecoind name_firstupdate  id/&lt;your name&gt; &lt;short hex string&gt; '{"email": "&lt;email address&gt;", "bitcoin": "&lt;bitcoin accress&gt;", "litecoin": "&lt;litecoin address&gt;"}'
+</code></pre>
+</div>
+
+<p>You can pretty much put what ever information you want into this namespace, enabling others to find you.</p>
+
+<h2 id="browsing-bit-domains">Browsing .bit domains</h2>
+<p>There are a few proxies and DNS type servers available to help you resolve .bit addresses.
+You can find out more about this <a href="http://dot-bit.org/How_To_Browse_Bit_Domains">here</a>.</p>
+
+<p>On a final note, if you do not care about owning the key/value pair directly, you can <a href="http://dot-bit.org/HowToRegisterAndConfigureBitDomains#Register_a_domain_with_a_registrar">use a registrar</a>.</p>
+
+
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'chengblog';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+</section>
+
+<div id="back-top">
+  <a href="#top" title="back to top"></a>
+</div>
+<footer>
+    <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+    <p><small>2016 created by Cheng Huang</small></p><!-- Begin ShinyStat Free code -->
+<p><script type="text/javascript" language="JavaScript" src="http://codice.shinystat.com/cgi-bin/getcod.cgi?USER=hc260164797"></script>
+<noscript>
+<a href="http://www.shinystat.com" target="_top">
+<img src="http://www.shinystat.com/cgi-bin/shinystat.cgi?USER=hc260164797" alt="Free web stats" border="0" /></a>
+</noscript>
+<!-- End ShinyStat Free code --></p>
+</footer>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'chengblog';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+
+<script src="/static/minimal/javascripts/scale.fix.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script ty[e="text/javascript">
+$("#back-top").hide();
+$(document).ready(function () {
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 100) {
+      $('#back-top').fadeIn();
+  } else {
+      $('#back-top').fadeOut();
+  }
+});
+  $('#back-top a').click(function () {
+    $('body,html').animate({
+      scrollTop: 0
+  }, 800);
+    return false;
+});
+});
+</script>
+</div>
+</body>
+</html>
+
+
+
