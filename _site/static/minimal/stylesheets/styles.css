@@ -319,6 +319,10 @@ footer {
   float:right;
 }
 
+.iconimage img{
+  width:200px;
+}
+
 .intro h4{
   -webkit-margin-start: 40px;
 }
